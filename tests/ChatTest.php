@@ -52,6 +52,23 @@ class ChatTest extends TestCase
     }
 
     /** @test */
+    public function it_returns_a_message_given_the_id()
+    {
+        $users = $this->createUsers(2);
+
+        $conversation = Chat::createConversation([$users[0]->id, $users[1]->id]);
+
+        $message = Chat::message('Hello')
+            ->from($users[0])
+            ->to($conversation)
+            ->send();
+
+        $m = Chat::messageWithId($message->id);
+
+        $this->assertEquals($message->id, $m->id);
+    }
+
+    /** @test */
     public function it_can_send_a_message_and_specificy_type()
     {
         $users = $this->createUsers(2);
