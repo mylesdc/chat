@@ -1,5 +1,8 @@
-[![Downloads](https://img.shields.io/packagist/dt/musonza/chat.svg?style=flat-square)](https://packagist.org/packages/musonza/chat)
-[![StyleCI](https://styleci.io/repos/54214978/shield?branch=master)](https://styleci.io/repos/54214978)
+<p align="left"><img src="menu.png" alt="chat" width="330px"></p>
+
+[![Build Status](https://travis-ci.org/musonza/chat.svg?branch=master)](https://travis-ci.org/musonza/chat)
+[![Downloads](https://img.shields.io/packagist/dt/musonza/chat.svg)](https://packagist.org/packages/musonza/chat)
+[![Packagist](https://img.shields.io/packagist/v/musonza/chat.svg)](https://packagist.org/packages/musonza/chat)
 ## Chat 
 
 - [Introduction](#introduction)
@@ -7,13 +10,17 @@
 - [Usage](#usage)
   - [Creating a conversation](#creating-a-conversation)
   - [Get a conversation by Id](#get-a-conversation-by-id)
+  - [Update conversation details](#update-conversation-details)
   - [Send a text message](#send-a-text-message)
   - [Send a message of custom type](#send-a-message-of-custom-type)
+  - [Get a message by id](#get-a-message-by-id)
   - [Mark a message as read](#mark-a-message-as-read)
   - [Mark whole conversation as read](#mark-whole-conversation-as-read)
+  - [Unread messages count](#unread-messages-count)
   - [Delete a message](#delete-a-message)
   - [Clear a conversation](#clear-a-conversation)
   - [Get a conversation between two users](#get-a-conversation-between-two-users)
+  - [Get common conversations among users](#get-common-conversations-among-users)
   - [Remove users from a conversation](#remove-users-from-a-conversation)
   - [Add users to a conversation](#add-users-to-a-conversation)
   - [Get messages in a conversation](#get-messages-in-a-conversation)
@@ -23,9 +30,9 @@
 
 ## Introduction
 
-This package allows you to add a chat system to your Laravel ^5.3 application
+This package allows you to add a chat system to your Laravel ^5.4 application
 
-> **Note:** If you are using a Laravel version less than 5.3 [install the release on this branch instead](https://github.com/musonza/chat/tree/1.0).
+> **Note:** If you are using a Laravel version less than 5.4 [install the release on this branch instead](https://github.com/musonza/chat/tree/1.0).
 
 ## Installation
 
@@ -38,7 +45,7 @@ composer require musonza/chat
 Add the service provider to your `config\app.php` the providers array
 
 ```
-Musonza\Chat\ChatServiceProvider
+Musonza\Chat\ChatServiceProvider::class
 ```
 
 Add the Facade to your aliases:
@@ -64,6 +71,30 @@ This will publish database migrations and a configuration file `musonza_chat.php
 > **Note:** This package takes advantage of Laravel Notifications. 
 If you have already setup Laravel notifications you can delete the `2017_07_12_034227_create_notifications_table.php` migration file.
 
+## Configuration
+
+```php
+[
+    'user_model'            => 'App\User',
+
+    /**
+     * This will allow you to broadcast an event when a message is sent
+     * Example:
+     * Channel: private-mc-chat-conversation.2, 
+     * Event: Musonza\Chat\Messages\MessageWasSent 
+     */
+    'broadcasts'            => false,
+
+    /**
+     * If set to true, this will use Laravel notifications table to store each
+     * user message notification.
+     * Otherwise it will use mc_message_notification table.
+     * If your database doesn't support JSON columns you will need to set this to false.
+     */
+    'laravel_notifications' => true,
+];
+```
+
 Run the migrations:
 
 ```
@@ -77,15 +108,22 @@ By default the package assumes you have a User model in the App namespace.
 However, you can update the user model in `musonza_chat.php` published in the `config` folder.
 
 #### Creating a conversation
-```
+```php
 $participants = [$userId, $userId2,...];
 
 $conversation = Chat::createConversation($participants); 
 ```
 
 #### Get a conversation by id
-```
+```php
 $conversation = Chat::conversation($conversation_id);
+```
+
+#### Update conversation details
+
+```php
+$data = ['title' => 'PHP Channel', 'description' => 'PHP Channel Description'];
+$conversation->update(['data' => $data]);
 ```
 
 #### Send a text message
@@ -108,6 +146,12 @@ $message = Chat::message('http://example.com/img')
 		->send(); 
 ```
 
+### Get a message by id
+
+```php
+$message = Chat::messageById($id);
+```
+
 
 #### Mark a message as read
 
@@ -120,6 +164,12 @@ Chat::messages($message)->for($user)->markRead();
 ```php
 Chat::conversations($conversation)->for($user)->readAll();
 ```	
+
+#### Unread messages count
+
+```php
+$unreadCount = Chat::for($user)->unreadCount();
+```
 
 #### Delete a message
 
@@ -138,6 +188,13 @@ Chat::conversations($conversation)->for($user)->clear();
 ```php
 Chat::getConversationBetween($user1, $user2);
 ```
+
+#### Get common conversations among users
+
+```php
+$conversations = Chat::commonConversations($users);
+```
+`$users` can be an array of user ids ex. `[1,4,6]` or a collection `(\Illuminate\Database\Eloquent\Collection)` of users
 
 #### Remove users from a conversation
 

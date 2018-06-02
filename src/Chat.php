@@ -6,6 +6,7 @@ use Musonza\Chat\Commanding\CommandBus;
 use Musonza\Chat\Conversations\Conversation;
 use Musonza\Chat\Messages\Message;
 use Musonza\Chat\Messages\SendMessageCommand;
+use Musonza\Chat\Notifications\MessageNotification;
 
 class Chat
 {
@@ -42,15 +43,21 @@ class Chat
     protected $page = 1;
 
     /**
-     * @param \Musonza\Chat\Conversations\Conversation $conversation The conversation
-     * @param \Musonza\Chat\Messages\Message           $message      The message
-     * @param \Musonza\Chat\Commanding\CommandBus      $commandBus   The command bus
+     * @param Conversation $conversation The conversation
+     * @param Message           $message      The message
+     * @param CommandBus      $commandBus   The command bus
+     * @param MessageNotification      $messageNotification   Notifications
      */
-    public function __construct(Conversation $conversation, Message $message, CommandBus $commandBus)
+    public function __construct(
+        Conversation $conversation,
+        Message $message,
+        CommandBus $commandBus,
+        MessageNotification $messageNotification)
     {
         $this->conversation = $conversation;
         $this->message = $message;
         $this->commandBus = $commandBus;
+        $this->messageNotification = $messageNotification;
     }
 
     /**
@@ -295,6 +302,18 @@ class Chat
     }
 
     /**
+     * Get messages by id.
+     *
+     * @param int $id
+     *
+     * @return Message
+     */
+    public function messageById($id)
+    {
+        return $this->message->findOrFail($id);
+    }
+
+    /**
      * Deletes message.
      *
      * @return void
@@ -320,6 +339,18 @@ class Chat
     public function readAll()
     {
         $this->conversation->readAll($this->user);
+    }
+
+    /**
+     * Get conversations that users have in common.
+     *
+     *  @param array | collection $users
+     *
+     * @return Conversations
+     */
+    public function commonConversations($users)
+    {
+        return $this->conversation->common($users);
     }
 
     /**
@@ -358,6 +389,26 @@ class Chat
     }
 
     /**
+     * Get count for unread messages.
+     *
+     * @return void
+     */
+    public function unreadCount()
+    {
+        return $this->message->unreadCount($this->user);
+    }
+
+    /**
+     * Get unread notifications
+     *
+     * @return MessageNotification
+     */
+    public function unReadNotifications()
+    {
+        return $this->messageNotification->unReadNotifications($this->user);
+    }
+
+    /**
      * Returns the User Model class.
      *
      * @return string
@@ -367,8 +418,13 @@ class Chat
         return config('musonza_chat.user_model');
     }
 
-    public static function eventDispatcher()
+    public static function broadcasts()
     {
-        return config('musonza_chat.event_dispatcher');
+        return config('musonza_chat.broadcasts');
+    }
+
+    public static function laravelNotifications()
+    {
+        return config('musonza_chat.laravel_notifications');
     }
 }
