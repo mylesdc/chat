@@ -162,7 +162,7 @@ class Conversation extends BaseModel
 
         return $this->join('mc_conversation_user', 'mc_conversation_user.conversation_id', '=', 'mc_conversations.id')
             ->where('mc_conversation_user.user_id', $userId)
-            ->where('mc_conversation_user.archived', 0)
+            ->where('mc_conversation_user.archived', false)
             ->where('private', true)
             ->pluck('mc_conversations.id');
     }
@@ -268,7 +268,7 @@ class Conversation extends BaseModel
                         ->select('mc_message_notification.*', 'mc_messages.*');
                 },
             ])->where('mc_conversation_user.user_id', $user->id)
-            ->where('mc_conversation_user.archived', 0)
+            ->where('mc_conversation_user.archived', false)
             ->orderBy('mc_conversations.updated_at', 'DESC')
             ->distinct('mc_conversations.id')
             ->paginate($perPage, ['mc_conversations.*'], $pageName, $page);
