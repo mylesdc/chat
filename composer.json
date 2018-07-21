@@ -1,5 +1,5 @@
 {
-    "name": "yespbs/chat",
+    "name": "musonza/chat",
     "description": "Chat Package for Laravel 5.4 and up with Archive conversation feature.",
     "type": "library",
     "keywords": [
