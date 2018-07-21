@@ -162,6 +162,7 @@ class Conversation extends BaseModel
 
         return $this->join('mc_conversation_user', 'mc_conversation_user.conversation_id', '=', 'mc_conversations.id')
             ->where('mc_conversation_user.user_id', $userId)
+            ->where('mc_conversation_user.archived', 0)
             ->where('private', true)
             ->pluck('mc_conversations.id');
     }
