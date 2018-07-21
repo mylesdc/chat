@@ -40,6 +40,7 @@ class CreateChatTables extends Migration
         Schema::create('mc_conversation_user', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();
             $table->integer('conversation_id')->unsigned();
+            $table->boolean('archived')->default(0);
             $table->primary(['user_id', 'conversation_id']);
             $table->timestamps();
 
