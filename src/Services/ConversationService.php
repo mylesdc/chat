@@ -108,6 +108,18 @@ class ConversationService
     }
 
     /**
+     * Get Archived Conversations with lastest message.
+     *
+     * @param object $user
+     *
+     * @return Illuminate\Pagination\LengthAwarePaginator
+     */
+    public function getArchived()
+    {
+        return $this->conversation->getList($this->user, $this->perPage, $this->page, $pageName = 'page', true);
+    }
+
+    /**
      * Add user(s) to a conversation.
      *
      * @param Conversation $conversation

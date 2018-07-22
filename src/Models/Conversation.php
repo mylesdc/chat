@@ -69,9 +69,9 @@ class Conversation extends BaseModel
      *
      * @return Conversations The list.
      */
-    public function getList($user, $perPage = 25, $page = 1, $pageName = 'page')
+    public function getList($user, $perPage = 25, $page = 1, $pageName = 'page', $archived=false)
     {
-        return $this->getConversationsList($user, $perPage, $page, $pageName);
+        return $this->getConversationsList($user, $perPage, $page, $pageName, $archived);
     }
 
     /**
@@ -236,6 +236,14 @@ class Conversation extends BaseModel
         return $this->getNotifications($user, true);
     }
 
+    public function archive($user)
+    {
+        
+        $userId = is_object($user) ? $user->id : $user;        
+
+        return $this->users()->where('user_id', $userId)->update(['archived'=>1]);
+    }
+
     private function getConversationMessages($user, $paginationParams, $deleted)
     {
         $messages = $this->messages()
@@ -259,7 +267,7 @@ class Conversation extends BaseModel
         return $messages;
     }
 
-    private function getConversationsList($user, $perPage, $page, $pageName)
+    private function getConversationsList($user, $perPage, $page, $pageName, $archived=false)
     {
         return $this->join('mc_conversation_user', 'mc_conversation_user.conversation_id', '=', 'mc_conversations.id')
             ->with([
@@ -268,7 +276,7 @@ class Conversation extends BaseModel
                         ->select('mc_message_notification.*', 'mc_messages.*');
                 },
             ])->where('mc_conversation_user.user_id', $user->id)
-            ->where('mc_conversation_user.archived', false)
+            ->where('mc_conversation_user.archived', $archived)
             ->orderBy('mc_conversations.updated_at', 'DESC')
             ->distinct('mc_conversations.id')
             ->paginate($perPage, ['mc_conversations.*'], $pageName, $page);
@@ -292,4 +300,6 @@ class Conversation extends BaseModel
             ->where('conversation_id', $this->id)
             ->delete();
     }
+
+
 }
