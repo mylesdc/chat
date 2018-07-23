@@ -22,7 +22,7 @@ class Conversation extends BaseModel
      */
     public function users()
     {
-        return $this->belongsToMany(Chat::userModel(), 'mc_conversation_user')->withTimestamps()->withPivot('archived');
+        return $this->belongsToMany(Chat::userModel(), 'mc_conversation_user')->withPivot('archived')->withTimestamps();
     }
 
     /**
@@ -243,7 +243,7 @@ class Conversation extends BaseModel
 
         $conversationUser = $this->users()->where('user_id', $userId)->first();
 
-        $conversationUser->archived = true;
+        $conversationUser->pivot->archived = true;
 
         return $conversationUser->save();
     }
