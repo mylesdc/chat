@@ -241,7 +241,11 @@ class Conversation extends BaseModel
         
         $userId = is_object($user) ? $user->id : $user;        
 
-        return $this->users()->where('user_id', $userId)->update(['archived'=>1]);
+        $conversationUser = $this->users()->where('user_id', $userId)->first();
+
+        $conversationUser->archived = true;
+
+        return $conversationUser->save();
     }
 
     private function getConversationMessages($user, $paginationParams, $deleted)
