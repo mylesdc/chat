@@ -245,7 +245,7 @@ class Conversation extends BaseModel
 
         $conversationUser->pivot->archived = true;
 
-        return $conversationUser->save();
+        return $conversationUser->pivot->save();
     }
 
     private function getConversationMessages($user, $paginationParams, $deleted)
