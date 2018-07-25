@@ -248,6 +248,18 @@ class Conversation extends BaseModel
         return $conversationUser->pivot->save();
     }
 
+    public function unarchive($user)
+    {
+        
+        $userId = is_object($user) ? $user->id : $user;        
+
+        $conversationUser = $this->users()->where('user_id', $userId)->first();
+
+        $conversationUser->pivot->archived = false;
+
+        return $conversationUser->pivot->save();
+    }
+
     private function getConversationMessages($user, $paginationParams, $deleted)
     {
         $messages = $this->messages()
