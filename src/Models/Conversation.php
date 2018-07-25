@@ -248,7 +248,7 @@ class Conversation extends BaseModel
         return $conversationUser->pivot->save();
     }
 
-    public function unarchive($user)
+    public function unArchive($user)
     {
         
         $userId = is_object($user) ? $user->id : $user;        
