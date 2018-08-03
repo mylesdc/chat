@@ -1,11 +1,11 @@
 <?php
 
-namespace MylesDC\Chat\Models;
+namespace Mylesdc\Chat\Models;
 
-use MylesDC\Chat\Chat;
-use MylesDC\Chat\BaseModel;
-use MylesDC\Chat\Models\Message;
-use MylesDC\Chat\Models\MessageNotification;
+use Mylesdc\Chat\Chat;
+use Mylesdc\Chat\BaseModel;
+use Mylesdc\Chat\Models\Message;
+use Mylesdc\Chat\Models\MessageNotification;
 
 class Conversation extends BaseModel
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace MylesDC\Chat\Tests;
+namespace Mylesdc\Chat\Tests;
 
 use Chat;
 use Illuminate\Foundation\Testing\DatabaseMigrations;

@@ -1,11 +1,11 @@
 <?php
 
-namespace MylesDC\Chat\Services;
+namespace Mylesdc\Chat\Services;
 
-use MylesDC\Chat\Models\Conversation;
-use MylesDC\Chat\Models\Message;
-use MylesDC\Chat\Traits\Paginates;
-use MylesDC\Chat\Traits\SetsParticipants;
+use Mylesdc\Chat\Models\Conversation;
+use Mylesdc\Chat\Models\Message;
+use Mylesdc\Chat\Traits\Paginates;
+use Mylesdc\Chat\Traits\SetsParticipants;
 
 class ConversationService
 {

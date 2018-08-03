@@ -1,8 +1,8 @@
 <p align="left"><img src="menu.png" alt="chat" width="330px"></p>
 
-[![Build Status](https://travis-ci.org/MylesDC/chat.svg?branch=master)](https://travis-ci.org/MylesDC/chat)
-[![Downloads](https://img.shields.io/packagist/dt/MylesDC/chat.svg)](https://packagist.org/packages/MylesDC/chat)
-[![Packagist](https://img.shields.io/packagist/v/MylesDC/chat.svg)](https://packagist.org/packages/MylesDC/chat)
+[![Build Status](https://travis-ci.org/Mylesdc/chat.svg?branch=master)](https://travis-ci.org/Mylesdc/chat)
+[![Downloads](https://img.shields.io/packagist/dt/Mylesdc/chat.svg)](https://packagist.org/packages/Mylesdc/chat)
+[![Packagist](https://img.shields.io/packagist/v/Mylesdc/chat.svg)](https://packagist.org/packages/Mylesdc/chat)
 ## Chat
 
 - [Introduction](#introduction)
@@ -37,19 +37,19 @@ This package allows you to add a chat system to your Laravel ^5.4 application
 From the command line, run:
 
 ```
-composer require MylesDC/chat
+composer require Mylesdc/chat
 ```
 
 Add the service provider to your `config\app.php` the providers array
 
 ```
-MylesDC\Chat\ChatServiceProvider::class
+Mylesdc\Chat\ChatServiceProvider::class
 ```
 
 Add the Facade to your aliases:
 
 ```
-'Chat' => MylesDC\Chat\Facades\ChatFacade::class to your `config\app.php`
+'Chat' => Mylesdc\Chat\Facades\ChatFacade::class to your `config\app.php`
 ```
 
 The class is bound to the ioC as chat
@@ -64,7 +64,7 @@ Publish the assets:
 php artisan vendor:publish
 ```
 
-This will publish database migrations and a configuration file `MylesDC_chat.php` in the Laravel config folder.
+This will publish database migrations and a configuration file `Mylesdc_chat.php` in the Laravel config folder.
 
 ## Configuration
 
@@ -76,7 +76,7 @@ This will publish database migrations and a configuration file `MylesDC_chat.php
      * This will allow you to broadcast an event when a message is sent
      * Example:
      * Channel: private-mc-chat-conversation.2,
-     * Event: MylesDC\Chat\Messages\MessageWasSent
+     * Event: Mylesdc\Chat\Messages\MessageWasSent
      */
     'broadcasts'            => false,
 ];
@@ -92,7 +92,7 @@ php artisan migrate
 
 By default the package assumes you have a User model in the App namespace.
 
-However, you can update the user model in `MylesDC_chat.php` published in the `config` folder.
+However, you can update the user model in `Mylesdc_chat.php` published in the `config` folder.
 
 #### Creating a conversation
 ```php

@@ -1,7 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
-use MylesDC\Chat\User;
+use Mylesdc\Chat\User;
 
 /*
 |--------------------------------------------------------------------------

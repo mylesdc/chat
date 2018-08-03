@@ -1,12 +1,12 @@
 <?php
 
-namespace MylesDC\Chat;
+namespace Mylesdc\Chat;
 
-use MylesDC\Chat\Models\Conversation;
-use MylesDC\Chat\Models\MessageNotification;
-use MylesDC\Chat\Services\ConversationService;
-use MylesDC\Chat\Services\MessageService;
-use MylesDC\Chat\Traits\SetsParticipants;
+use Mylesdc\Chat\Models\Conversation;
+use Mylesdc\Chat\Models\MessageNotification;
+use Mylesdc\Chat\Services\ConversationService;
+use Mylesdc\Chat\Services\MessageService;
+use Mylesdc\Chat\Traits\SetsParticipants;
 
 class Chat
 {
@@ -40,7 +40,7 @@ class Chat
     /**
      * Sets message.
      *
-     * @param string | MylesDC\Chat\Models\Message  $message
+     * @param string | Mylesdc\Chat\Models\Message  $message
      *
      * @return MessageService
      */
@@ -97,7 +97,7 @@ class Chat
      */
     public static function userModel()
     {
-        return config('MylesDC_chat.user_model');
+        return config('Mylesdc_chat.user_model');
     }
 
     /**
@@ -107,6 +107,6 @@ class Chat
      */
     public static function broadcasts()
     {
-        return config('MylesDC_chat.broadcasts');
+        return config('Mylesdc_chat.broadcasts');
     }
 }

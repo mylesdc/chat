@@ -1,10 +1,10 @@
 <?php
 
-namespace MylesDC\Chat\Messages;
+namespace Mylesdc\Chat\Messages;
 
-use MylesDC\Chat\Commanding\CommandHandler;
-use MylesDC\Chat\Eventing\EventDispatcher;
-use MylesDC\Chat\Models\Message;
+use Mylesdc\Chat\Commanding\CommandHandler;
+use Mylesdc\Chat\Eventing\EventDispatcher;
+use Mylesdc\Chat\Models\Message;
 
 class SendMessageCommandHandler implements CommandHandler
 {

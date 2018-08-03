@@ -1,11 +1,11 @@
 <?php
 
-namespace MylesDC\Chat\Services;
+namespace Mylesdc\Chat\Services;
 
-use MylesDC\Chat\Commanding\CommandBus;
-use MylesDC\Chat\Messages\SendMessageCommand;
-use MylesDC\Chat\Models\Message;
-use MylesDC\Chat\Traits\SetsParticipants;
+use Mylesdc\Chat\Commanding\CommandBus;
+use Mylesdc\Chat\Messages\SendMessageCommand;
+use Mylesdc\Chat\Models\Message;
+use Mylesdc\Chat\Traits\SetsParticipants;
 
 class MessageService
 {

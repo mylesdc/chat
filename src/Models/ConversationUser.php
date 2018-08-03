@@ -1,8 +1,8 @@
 <?php
 
-namespace MylesDC\Chat\Models;
+namespace Mylesdc\Chat\Models;
 
-use MylesDC\Chat\BaseModel;
+use Mylesdc\Chat\BaseModel;
 
 class ConversationUser extends BaseModel
 {

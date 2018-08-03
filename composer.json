@@ -1,5 +1,5 @@
 {
-    "name": "MylesDC/chat",
+    "name": "Mylesdc/chat",
     "description": "Chat Package for Laravel 5.4 and up with Archive conversation feature.",
     "type": "library",
     "keywords": [
@@ -21,7 +21,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Tinashe MylesDC",
+            "name": "Tinashe Mylesdc",
             "email": "tashtin263@gmail.com",
             "role": "Developer"
         }
@@ -29,12 +29,12 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "MylesDC\\Chat\\": "src/"
+            "Mylesdc\\Chat\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MylesDC\\Chat\\Tests\\": "tests"
+            "Mylesdc\\Chat\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -43,7 +43,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MylesDC\\Chat\\ChatServiceProvider"
+                "Mylesdc\\Chat\\ChatServiceProvider"
             ]
         }
     }

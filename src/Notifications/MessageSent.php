@@ -1,6 +1,6 @@
 <?php
 
-namespace MylesDC\Chat\Notifications;
+namespace Mylesdc\Chat\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;

@@ -1,13 +1,13 @@
 <?php
 
-namespace MylesDC\Chat\Models;
+namespace Mylesdc\Chat\Models;
 
-use MylesDC\Chat\BaseModel;
-use MylesDC\Chat\Chat;
-use MylesDC\Chat\Eventing\EventGenerator;
-use MylesDC\Chat\Eventing\MessageWasSent;
-use MylesDC\Chat\Models\Conversation;
-use MylesDC\Chat\Models\MessageNotification;
+use Mylesdc\Chat\BaseModel;
+use Mylesdc\Chat\Chat;
+use Mylesdc\Chat\Eventing\EventGenerator;
+use Mylesdc\Chat\Eventing\MessageWasSent;
+use Mylesdc\Chat\Models\Conversation;
+use Mylesdc\Chat\Models\MessageNotification;
 
 class Message extends BaseModel
 {

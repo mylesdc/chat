@@ -1,11 +1,11 @@
 <?php
 
-namespace MylesDC\Chat\Eventing;
+namespace Mylesdc\Chat\Eventing;
 
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use MylesDC\Chat\Models\Message;
-use MylesDC\Chat\Models\MessageNotification;
+use Mylesdc\Chat\Models\Message;
+use Mylesdc\Chat\Models\MessageNotification;
 
 class MessageWasSent implements ShouldBroadcast
 {

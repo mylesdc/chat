@@ -1,6 +1,6 @@
 <?php
 
-namespace MylesDC\Chat\Tests;
+namespace Mylesdc\Chat\Tests;
 
 use Chat;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -154,7 +154,7 @@ class ConversationTest extends TestCase
         Chat::message('Hello Man 6')->from($this->users[0])->to($conversation3)->send();
         Chat::message('Hello Man 3')->from($this->users[2])->to($conversation2)->send();
 
-        $users = \MylesDC\Chat\User::whereIn('id', [1, 2, 4])->get();
+        $users = \Mylesdc\Chat\User::whereIn('id', [1, 2, 4])->get();
 
         $conversations = Chat::conversations()->common($users);
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace MylesDC\Chat\Eventing;
+namespace Mylesdc\Chat\Eventing;
 
 trait EventGenerator
 {

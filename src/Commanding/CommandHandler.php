@@ -1,6 +1,6 @@
 <?php
 
-namespace MylesDC\Chat\Commanding;
+namespace Mylesdc\Chat\Commanding;
 
 interface CommandHandler
 {

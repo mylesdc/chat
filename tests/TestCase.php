@@ -1,11 +1,11 @@
 <?php
 
-namespace MylesDC\Chat\Tests;
+namespace Mylesdc\Chat\Tests;
 
 require __DIR__.'/../database/migrations/create_chat_tables.php';
 
 use CreateChatTables;
-use MylesDC\Chat\User;
+use Mylesdc\Chat\User;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -77,22 +77,22 @@ class TestCase extends \Orchestra\Testbench\TestCase
         //     'prefix' => '',
         // ]);
 
-        $app['config']->set('MylesDC_chat.user_model', 'MylesDC\Chat\User');
-        $app['config']->set('MylesDC_chat.broadcasts', false);
+        $app['config']->set('Mylesdc_chat.user_model', 'Mylesdc\Chat\User');
+        $app['config']->set('Mylesdc_chat.broadcasts', false);
     }
 
     protected function getPackageProviders($app)
     {
         return [
             \Orchestra\Database\ConsoleServiceProvider::class,
-            \MylesDC\Chat\ChatServiceProvider::class,
+            \Mylesdc\Chat\ChatServiceProvider::class,
         ];
     }
 
     protected function getPackageAliases($app)
     {
         return [
-            'Chat' => \MylesDC\Chat\Facades\ChatFacade::class,
+            'Chat' => \Mylesdc\Chat\Facades\ChatFacade::class,
         ];
     }
 

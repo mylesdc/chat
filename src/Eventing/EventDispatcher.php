@@ -1,9 +1,9 @@
 <?php
 
-namespace MylesDC\Chat\Eventing;
+namespace Mylesdc\Chat\Eventing;
 
 use Illuminate\Events\Dispatcher;
-use MylesDC\Chat\Chat;
+use Mylesdc\Chat\Chat;
 
 class EventDispatcher
 {

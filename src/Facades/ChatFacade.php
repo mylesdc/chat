@@ -1,6 +1,6 @@
 <?php
 
-namespace MylesDC\Chat\Facades;
+namespace Mylesdc\Chat\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

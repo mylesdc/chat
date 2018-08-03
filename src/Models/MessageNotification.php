@@ -1,12 +1,12 @@
 <?php
 
-namespace MylesDC\Chat\Models;
+namespace Mylesdc\Chat\Models;
 
-use MylesDC\Chat\BaseModel;
-use MylesDC\Chat\Chat;
-use MylesDC\Chat\Models\Message;
+use Mylesdc\Chat\BaseModel;
+use Mylesdc\Chat\Chat;
+use Mylesdc\Chat\Models\Message;
 use Illuminate\Support\Facades\Notification;
-use MylesDC\Chat\Models\Conversation;
+use Mylesdc\Chat\Models\Conversation;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MessageNotification extends BaseModel
