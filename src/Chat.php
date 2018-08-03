@@ -1,12 +1,12 @@
 <?php
 
-namespace Musonza\Chat;
+namespace MylesDC\Chat;
 
-use Musonza\Chat\Models\Conversation;
-use Musonza\Chat\Models\MessageNotification;
-use Musonza\Chat\Services\ConversationService;
-use Musonza\Chat\Services\MessageService;
-use Musonza\Chat\Traits\SetsParticipants;
+use MylesDC\Chat\Models\Conversation;
+use MylesDC\Chat\Models\MessageNotification;
+use MylesDC\Chat\Services\ConversationService;
+use MylesDC\Chat\Services\MessageService;
+use MylesDC\Chat\Traits\SetsParticipants;
 
 class Chat
 {
@@ -40,7 +40,7 @@ class Chat
     /**
      * Sets message.
      *
-     * @param string | Musonza\Chat\Models\Message  $message
+     * @param string | MylesDC\Chat\Models\Message  $message
      *
      * @return MessageService
      */
@@ -97,7 +97,7 @@ class Chat
      */
     public static function userModel()
     {
-        return config('musonza_chat.user_model');
+        return config('MylesDC_chat.user_model');
     }
 
     /**
@@ -107,6 +107,6 @@ class Chat
      */
     public static function broadcasts()
     {
-        return config('musonza_chat.broadcasts');
+        return config('MylesDC_chat.broadcasts');
     }
 }

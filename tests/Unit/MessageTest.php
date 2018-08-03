@@ -1,10 +1,10 @@
 <?php
 
-namespace Musonza\Chat\Tests;
+namespace MylesDC\Chat\Tests;
 
 use Chat;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Musonza\Chat\Models\Message;
+use MylesDC\Chat\Models\Message;
 
 class MessageTest extends TestCase
 {

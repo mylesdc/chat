@@ -1,6 +1,6 @@
 <?php
 
-namespace Musonza\Chat\Notifications;
+namespace MylesDC\Chat\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;

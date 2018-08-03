@@ -1,6 +1,6 @@
 <?php
 
-namespace Musonza\Chat\Commanding;
+namespace MylesDC\Chat\Commanding;
 
 use Illuminate\Foundation\Application;
 

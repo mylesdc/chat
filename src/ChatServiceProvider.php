@@ -1,6 +1,6 @@
 <?php
 
-namespace Musonza\Chat;
+namespace MylesDC\Chat;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -42,7 +42,7 @@ class ChatServiceProvider extends ServiceProvider
     private function registerChat()
     {
         $this->app->bind('chat', function () {
-            return $this->app->make(\Musonza\Chat\Chat::class);
+            return $this->app->make(\MylesDC\Chat\Chat::class);
         });
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Musonza\Chat;
+namespace MylesDC\Chat;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace Musonza\Chat\Models;
+namespace MylesDC\Chat\Models;
 
-use Musonza\Chat\Chat;
-use Musonza\Chat\BaseModel;
-use Musonza\Chat\Models\Message;
-use Musonza\Chat\Models\MessageNotification;
+use MylesDC\Chat\Chat;
+use MylesDC\Chat\BaseModel;
+use MylesDC\Chat\Models\Message;
+use MylesDC\Chat\Models\MessageNotification;
 
 class Conversation extends BaseModel
 {

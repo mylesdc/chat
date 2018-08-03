@@ -1,11 +1,11 @@
 <?php
 
-namespace Musonza\Chat\Services;
+namespace MylesDC\Chat\Services;
 
-use Musonza\Chat\Commanding\CommandBus;
-use Musonza\Chat\Messages\SendMessageCommand;
-use Musonza\Chat\Models\Message;
-use Musonza\Chat\Traits\SetsParticipants;
+use MylesDC\Chat\Commanding\CommandBus;
+use MylesDC\Chat\Messages\SendMessageCommand;
+use MylesDC\Chat\Models\Message;
+use MylesDC\Chat\Traits\SetsParticipants;
 
 class MessageService
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Musonza\Chat\Models;
+namespace MylesDC\Chat\Models;
 
-use Musonza\Chat\BaseModel;
-use Musonza\Chat\Chat;
-use Musonza\Chat\Eventing\EventGenerator;
-use Musonza\Chat\Eventing\MessageWasSent;
-use Musonza\Chat\Models\Conversation;
-use Musonza\Chat\Models\MessageNotification;
+use MylesDC\Chat\BaseModel;
+use MylesDC\Chat\Chat;
+use MylesDC\Chat\Eventing\EventGenerator;
+use MylesDC\Chat\Eventing\MessageWasSent;
+use MylesDC\Chat\Models\Conversation;
+use MylesDC\Chat\Models\MessageNotification;
 
 class Message extends BaseModel
 {

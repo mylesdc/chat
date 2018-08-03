@@ -1,8 +1,8 @@
 <?php
 
-namespace Musonza\Chat\Messages;
+namespace MylesDC\Chat\Messages;
 
-use Musonza\Chat\Models\Conversation;
+use MylesDC\Chat\Models\Conversation;
 
 class SendMessageCommand
 {
