@@ -155,4 +155,15 @@ class ConversationService
     {
         return array_values(array_intersect($conversation1, $conversation2));
     }
+    /**
+     * Get conversations that users have in common.
+     *
+     *  @param array | collection $users
+     *
+     * @return Conversations
+     */
+    public function group($group)
+    {
+        return $this->conversation->common($group);
+    }
 }
