@@ -100,6 +100,31 @@ class Conversation extends BaseModel
     }
 
     /**
+     * Add user to conversation.
+     *
+     * @param int $userId
+     *
+     * @return void
+     */
+    public function add_group_participants($group)
+    {
+        if (is_array($userIds)) {
+            foreach ($userIds as $id) {
+                $this->users()->attach($id);
+            }
+        } else {
+            $this->users()->attach($userIds);
+        }
+
+        if ($this->users->count() > 2) {
+            $this->private = false;
+            $this->save();
+        }
+
+        return $this;
+    }
+
+    /**
      * Remove user from conversation.
      *
      * @param  $users
@@ -138,6 +163,26 @@ class Conversation extends BaseModel
 
         return $conversation;
     }
+
+    /**
+     * Starts a new group conversation.
+     *
+     * @param array $group
+     *
+     * @return Conversation
+     */
+    public function start_group($group, $data = [])
+    {
+        $conversation = $this->create(['data' => $data]);
+
+        if ($group) {
+            $conversation->add_group_participants($group);
+        }
+
+        return $conversation;
+    }
+
+
 
     /**
      * Get number of users in a conversation.

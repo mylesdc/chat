@@ -37,6 +37,11 @@ class Chat
         return $this->conversationService->start($participants, $data);
     }
 
+    public function createGroupConversation(array $participants, array $data = [])
+    {
+        return $this->conversationService->start($participants, $data);
+    }
+
     /**
      * Sets message.
      *

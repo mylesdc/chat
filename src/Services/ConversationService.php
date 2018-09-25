@@ -21,6 +21,11 @@ class ConversationService
         return $this->conversation->start($participants);
     }
 
+    public function start_group($group)
+    {
+      return $this->conversation->start($group);
+    }
+
     public function setConversation($conversation)
     {
         $this->conversation = $conversation;
