@@ -174,7 +174,7 @@ class Conversation extends BaseModel
     public function start_group($group, $data = [])
     {
         $conversation = $this->create(['data' => $data]);
-
+        //testing
         if ($group) {
             $conversation->add_group_participants($group);
         }
