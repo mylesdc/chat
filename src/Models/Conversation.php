@@ -337,4 +337,19 @@ class Conversation extends BaseModel
             ->where('conversation_id', $this->id)
             ->delete();
     }
+
+    public function group($groups)
+    {
+        if ($groups instanceof \Illuminate\Database\Eloquent\Collection) {
+            $group = $groups->map(function ($group) {
+                return $group->id;
+            });
+        }
+
+        return $this->withCount(['groups' => function ($query) use ($groups) {
+            $query->whereIn('id', $groups);
+        }])->get()->filter(function ($conversation, $key) use ($groups) {
+            return $conversation->groups_count == count($groups);
+        });
+    }
 }
