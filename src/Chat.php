@@ -39,7 +39,7 @@ class Chat
 
     public function createGroupConversation(array $participants, array $data = [])
     {
-        return $this->conversationService->start($participants, $data);
+        return $this->conversationService->start_group($participants, $data);
     }
 
     /**
